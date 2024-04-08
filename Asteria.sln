@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteria.WebApp", "Asteria.WebApp\Asteria.WebApp.csproj", "{67385246-203E-4424-92D0-B3D564ED1F23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteria.Infra", "Asteria.Infra\Asteria.Infra.csproj", "{9016767D-DB07-4DDD-93D9-6A8853B2735C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteria.Domain", "Asteria.Domain\Asteria.Domain.csproj", "{0D37FB9C-43C7-4AAD-A7E0-6A18E967E647}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67385246-203E-4424-92D0-B3D564ED1F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67385246-203E-4424-92D0-B3D564ED1F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67385246-203E-4424-92D0-B3D564ED1F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67385246-203E-4424-92D0-B3D564ED1F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9016767D-DB07-4DDD-93D9-6A8853B2735C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9016767D-DB07-4DDD-93D9-6A8853B2735C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9016767D-DB07-4DDD-93D9-6A8853B2735C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9016767D-DB07-4DDD-93D9-6A8853B2735C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D37FB9C-43C7-4AAD-A7E0-6A18E967E647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D37FB9C-43C7-4AAD-A7E0-6A18E967E647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D37FB9C-43C7-4AAD-A7E0-6A18E967E647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D37FB9C-43C7-4AAD-A7E0-6A18E967E647}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

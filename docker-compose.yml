@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: asteriaadmin
+      MYSQL_DATABASE: asteria
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+
+  asteria.webapp:
+    image: asteria-teste-tecnico-asteria.webapp
+    build:
+      context: .
+      dockerfile: Asteria.WebApp/Dockerfile
+    ports:
+      - 8080:8080
+      - 8081:8081
+    depends_on:
+      - mysql
