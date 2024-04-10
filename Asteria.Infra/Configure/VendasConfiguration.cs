@@ -40,7 +40,8 @@ namespace Asteria.Infra.Configuration
 
             builder.Property(v => v.Faturamento)
                 .HasColumnName("Faturamento")
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("double(10,2)");
         }
     }
 }

@@ -13,7 +13,6 @@ namespace Asteria.Infra
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
             modelBuilder.ApplyConfiguration(new VendasConfiguration());
         }
     }
