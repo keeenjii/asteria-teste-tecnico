@@ -18,5 +18,6 @@ public class VendasRepository : IVendasRepository
         await _context.SaveChangesAsync(ct);
 
     public async Task BulkInsertAsync(List<Vendas> vendas, CancellationToken ct)
-    {}
+    {
+    }
 }

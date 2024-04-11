@@ -28,8 +28,8 @@ public class VendasService : IVendasService
 
             var vendasImport = ExcelUtils.Import(filePath);
             
-            await _vendasRepository.AddRangeAsync(vendasImport, ct);
-            await _vendasRepository.SaveChangesAsync(ct);
+            // await _vendasRepository.AddRangeAsync(vendasImport, ct);
+            // await _vendasRepository.SaveChangesAsync(ct);
 
             stopwatch.Stop();
             var elapsedTime = stopwatch.Elapsed;

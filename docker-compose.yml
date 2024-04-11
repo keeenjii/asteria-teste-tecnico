@@ -5,6 +5,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: asteriaadmin
       MYSQL_DATABASE: asteria
+      MYSQL_MAX_ALLOWED_PACKET: 128M  # Add this line
     ports:
       - 3306:3306
     volumes:
