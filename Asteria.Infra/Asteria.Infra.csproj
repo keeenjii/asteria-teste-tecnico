@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Asteria.Domain\Asteria.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations/" />
+  </ItemGroup>
+
 </Project>

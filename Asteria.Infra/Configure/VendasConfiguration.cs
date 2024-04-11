@@ -14,6 +14,7 @@ namespace Asteria.Infra.Configuration
                 .HasColumnName("Id")
                 .IsRequired()
                 .ValueGeneratedOnAdd();
+
             builder.HasKey(v => v.Id);
 
             builder.Property(v => v.CodigoCliente)
@@ -28,7 +29,21 @@ namespace Asteria.Infra.Configuration
             builder.Property(v => v.sku)
                 .HasColumnName("sku")
                 .IsRequired()
-                .HasMaxLength(15);
+                .HasMaxLength(25);
+
+            builder.Property(v => v.Data)
+                .HasColumnName("Data")
+                .IsRequired();
+
+            builder.Property(v => v.Categoria)
+                .HasColumnName("Categoria")
+                .IsRequired()
+                .HasMaxLength(12);
+
+            builder.Property(v => v.sku)
+                .HasColumnName("sku")
+                .IsRequired()
+                .HasMaxLength(25);
 
             builder.Property(v => v.Data)
                 .HasColumnName("Data")
@@ -42,6 +57,12 @@ namespace Asteria.Infra.Configuration
                 .HasColumnName("Faturamento")
                 .IsRequired()
                 .HasColumnType("double(10,2)");
+
+            builder.HasIndex(v => v.CodigoCliente, "CODIGO_CLIENTE_INDEX");
+            builder.HasIndex(v => v.Categoria, "CATEGORIA_INDEX");
+            builder.HasIndex(v => v.sku, "SKU_INDEX");
+            builder.HasIndex(v => v.Data, "DATA_INDEX");
+
         }
     }
 }

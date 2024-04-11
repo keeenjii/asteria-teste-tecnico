@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Asteria.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240408181533_Vendas")]
+    [Migration("20240411190025_Vendas")]
     partial class Vendas
     {
         /// <inheritdoc />
@@ -43,8 +43,8 @@ namespace Asteria.Infra.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("Data");
 
-                    b.Property<decimal>("Faturamento")
-                        .HasColumnType("decimal(18,2)")
+                    b.Property<double>("Faturamento")
+                        .HasColumnType("double(10,2)")
                         .HasColumnName("Faturamento");
 
                     b.Property<int>("Quantidade")
@@ -53,11 +53,19 @@ namespace Asteria.Infra.Migrations
 
                     b.Property<string>("sku")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)")
+                        .HasMaxLength(25)
+                        .HasColumnType("varchar(25)")
                         .HasColumnName("sku");
 
                     b.HasKey("Id");
+
+                    b.HasIndex(new[] { "Categoria" }, "CATEGORIA_INDEX");
+
+                    b.HasIndex(new[] { "CodigoCliente" }, "CODIGO_CLIENTE_INDEX");
+
+                    b.HasIndex(new[] { "Data" }, "DATA_INDEX");
+
+                    b.HasIndex(new[] { "sku" }, "SKU_INDEX");
 
                     b.ToTable("Vendas", (string)null);
                 });

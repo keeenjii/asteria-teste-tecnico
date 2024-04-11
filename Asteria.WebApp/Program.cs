@@ -2,6 +2,8 @@ using Asteria.Domain;
 using Asteria.Infra;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<IVendasRepository, VendasRepository>();
 builder.Services.AddScoped<IVendasService, VendasService>();
-
+builder.Services.AddControllers();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,46 +29,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseAntiforgery();
 app.UseHttpsRedirection();
+app.MapControllers();
 
-app.MapPost("/addmigrations", () =>
-{
-    try
-    {
-        using (var scope = app.Services.CreateScope())
-        {
-            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-            dbContext.Database.Migrate();
-        }
-        return "Migration created";
-    }
-    catch (Exception ex)
-    {
-        return ex.Message;
-    }
-})
-.WithName("addmigration")
-.WithOpenApi();
-
-
-app.MapPost("/upload",
-async (IFormFile file, CancellationToken ct) =>
-{
-    if (file != null && file.Length > 0)
-    {
-        using (var scope = app.Services.CreateScope())
-        {
-            var vendasService = scope.ServiceProvider.GetRequiredService<IVendasService>();
-
-            return await vendasService.Upload(file, ct);
-        }
-    }
-    else
-    {
-        return "No file uploaded";
-    }
-})
-.WithName("upload")
-.WithOpenApi()
-.DisableAntiforgery(); 
 app.Run();
+
